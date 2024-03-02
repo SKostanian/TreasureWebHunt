@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # **Meet Our Team!**
 ### Spartak and Dogush!!!
 1. We are responsible for doing the TreasureHunt application! 
