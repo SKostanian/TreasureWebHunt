@@ -1,0 +1,5 @@
+/* Dogush bro modify the styling, add buttons layers for the links of the list. I believe in you :) */
+
+li {
+    display: flex;
+}
