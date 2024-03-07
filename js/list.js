@@ -32,12 +32,15 @@ treasureHuntElement.addEventListener('click', function (event){
         const classList = event.target.classList;
         // source: https://developer.mozilla.org/en-US/docs/Web/API/Node/contains
         if (classList.contains('list1')) {
+            alert("Starting treasure hunt: UCLan Cyprus Science Day 2024");
+        }
+        if (classList.contains('list2')) {
             alert("Starting treasure hunt: Code Cyprus 2024");
         }
-        else if (classList.contains('list2')) {
+        else if (classList.contains('list3')) {
             alert("Starting treasure hunt: Sample treasure hunt");
         }
-        else if (classList.contains('list3')) {
+        else if (classList.contains('list4')) {
             alert("Starting treasure hunt: A future treasure hunt");
         }
     }
