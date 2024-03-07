@@ -49,6 +49,17 @@ li:active {
     transform: translateY(4px);
 }
 
+.select-hunt {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    background-color: #3498db;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 footer {
     background-color: #3498db;
     padding: 15px 0;

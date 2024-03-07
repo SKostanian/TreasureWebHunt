@@ -11,4 +11,7 @@
 
 - Meeting 6: Creating a js script file to retrieve TreasureHunt lists, Spartak. Date: 02/03/2024 14:24
 
-- Meeting 7: Creating the styled button list of treasure hunts, Spartak and Dogush Date: 07/03/2024 13:48
+- Meeting 7: Creating the styled button list of treasure hunts, Spartak and Dogush. Date: 07/03/2024 13:48
+
+- Meeting 8: Creating the design in motion using CSS and JavaScript, Sergei. Date: 07/03/2024 17:22
+
