@@ -31,17 +31,33 @@ treasureHuntElement.addEventListener('click', function (event){
         // I have used this property in conditions as otherwise I was returning the previous alert messages in list2 and list3
         const classList = event.target.classList;
         // source: https://developer.mozilla.org/en-US/docs/Web/API/Node/contains
-        if (classList.contains('list1')) {
-            alert("Starting treasure hunt: UCLan Cyprus Science Day 2024");
+        if (HasName)
+        {
+            if (classList.contains('list1')) {
+                alert("Starting treasure hunt: UCLan Cyprus Science Day 2024");
+            }
+            if (classList.contains('list2')) {
+                alert("Starting treasure hunt: Code Cyprus 2024");
+            }
+            else if (classList.contains('list3')) {
+                alert("Starting treasure hunt: Sample treasure hunt");
+            }
+            else if (classList.contains('list4')) {
+                alert("Starting treasure hunt: A future treasure hunt");
+            }
         }
-        if (classList.contains('list2')) {
-            alert("Starting treasure hunt: Code Cyprus 2024");
+        else
+        {
+            event.preventDefault();
         }
-        else if (classList.contains('list3')) {
-            alert("Starting treasure hunt: Sample treasure hunt");
-        }
-        else if (classList.contains('list4')) {
-            alert("Starting treasure hunt: A future treasure hunt");
-        }
+
     }
 });
+
+var visitorName;
+var HasName = false;
+function submitName() {
+    visitorName = document.getElementById("visitor_name").value;
+    alert("Thank you, " + visitorName + ", for submitting your name!");
+    HasName = true;
+}

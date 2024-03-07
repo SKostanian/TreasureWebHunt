@@ -10,6 +10,7 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 h1 {
@@ -65,4 +66,16 @@ footer {
     main {
         font-size: 20px;
     }
+}
+
+.div_name{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+}
+
+.main{
+    display: flex;
+
 }
