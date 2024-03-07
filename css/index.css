@@ -87,3 +87,42 @@ p {
         font-size: 20px;
     }
 }
+
+.h1_title{
+    opacity: 0;
+    transform: translateY(200px);
+    transition: all 1.5s;
+}
+
+.h1_title.element-show{
+    opacity: 1;
+
+    transition: all 1s;
+    transform: translateY(0px);
+}
+
+.main{
+    opacity: 0;
+    transform: translateX(200px);
+    transition: all 1.5s;
+}
+
+.main.element-show{
+    opacity: 1;
+
+    transition: all 1s;
+    transform: translateX(0px);
+}
+
+.external-links.element-show{
+    opacity: 1;
+
+    transition: all 1s;
+    transform: translateY(0px);
+}
+
+.external-links{
+    opacity: 0;
+    transform: translateY(200px);
+    transition: all 1.5s;
+}
