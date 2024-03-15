@@ -28,6 +28,7 @@
                     let sessionID = jsonObject.session;
                     setCookie("sessionID", sessionID);
                     location.href = "question.html";
+                    console.log(sessionID)
                 }
                 else {
                     alert(jsonObject.errorMessages);

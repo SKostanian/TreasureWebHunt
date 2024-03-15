@@ -22,7 +22,6 @@ async function callApi(name) {
         });
 }
 
-
 // Using the addEventListener method instead of a usual function
 // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 // treasureHuntElement.addEventListener('click', function (event){
@@ -76,14 +75,14 @@ async function callApi(name) {
 // });
 
 
-function updateLinks(name) {
-    const links = treasureHuntElement.querySelectorAll('a'); // Select all anchor tags within treasureHuntElement
-    links.forEach(link => {
-        const href = link.getAttribute('href'); // Get the href attribute value
-        const updatedHref = href.replace(/player=[^&]*/, 'player=' + encodeURIComponent(name)); // Replace the player parameter value with the new name
-        link.setAttribute('href', updatedHref); // Set the updated href attribute value
-    });
-}
+// function updateLinks(name) {
+//     const links = treasureHuntElement.querySelectorAll('a'); // Select all anchor tags within treasureHuntElement
+//     links.forEach(link => {
+//         const href = link.getAttribute('href'); // Get the href attribute value
+//         const updatedHref = href.replace(/player=[^&]*/, 'player=' + encodeURIComponent(name)); // Replace the player parameter value with the new name
+//         link.setAttribute('href', updatedHref); // Set the updated href attribute value
+//     });
+// }
 
 function getTreasureHuntId(url) {
     fetch(url)
@@ -98,7 +97,6 @@ function getTreasureHuntId(url) {
         .catch(error => console.error('Error fetching data:', error));
 }
 
-
 var visitorName = "";
 var HasName = false;
 var clickedLink = "";
@@ -110,20 +108,3 @@ function submitName() {
 }
 
 callApi(visitorName);
-
-
-
-function getQuestion(session) {
-    // Assuming you're making a GET request to fetch the JSON response
-    fetch(`https://codecyprus.org/th/api/question?session=${session}`)
-        .then(response => response.json())
-        .then(data => {
-            // Access the "questionText" field from the parsed JSON
-            const questionText = data.questionText;
-            console.log(questionText);
-            document.getElementById("p_question").innerHTML = questionText;
-            // Now you can use the questionText variable as needed
-        })
-        .catch(error => console.error('Error fetching data:', error));
-
-}
