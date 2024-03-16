@@ -2,41 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Start</title>
+    <title>App</title>
     <script src="js/cookies.js"></script>
+    <link href="css/list.css" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 </head>
 <body>
-<div class="div_name">
-  <input type="text" id="visitor_name" placeholder="Your Name" required>
-  <button onclick="start()">Submit</button>
-</div>
+<header>
+    <h1>Treasure Hunt Adventure</h1>
+</header>
 
-<script>
+<p class="select-hunt">Write your name</p>
+<main class="main">
+    <div class="div_name">
+        <input type="text" id="visitor_name" placeholder="Your Name" required>
+        <button onclick="start()">Submit</button>
+    </div>
+    <script>
 
-    const visitorNameElement = document.getElementById("visitor_name");
+        const visitorNameElement = document.getElementById("visitor_name");
 
-    function start() {
-        let playerName = visitorNameElement.value;
-        const appName = "Group-B1-App";
-        const params = new URLSearchParams(location.search);
-        let treasureHuntID = params.get("treasure-hunt-id");
-        fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app=${appName}&treasure-hunt-id=${treasureHuntID}`)
-            .then(response => response.json())
-            .then(jsonObject => {
-                console.log(jsonObject);
-                if (jsonObject.status === "OK") {
-                    let sessionID = jsonObject.session;
-                    setCookie("sessionID", sessionID);
-                    location.href = "question.html";
-                    console.log(sessionID)
-                }
-                else {
-                    alert(jsonObject.errorMessages);
-                }
-            });
-    }
+        function start() {
+            let playerName = visitorNameElement.value;
+            const appName = "Group-B1-App";
+            const params = new URLSearchParams(location.search);
+            let treasureHuntID = params.get("treasure-hunt-id");
+            fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app=${appName}&treasure-hunt-id=${treasureHuntID}`)
+                .then(response => response.json())
+                .then(jsonObject => {
+                    console.log(jsonObject);
+                    if (jsonObject.status === "OK") {
+                        let sessionID = jsonObject.session;
+                        setCookie("sessionID", sessionID);
+                        location.href = "question.html";
+                    }
+                    else {
+                        alert(jsonObject.errorMessages);
+                    }
+                });
+        }
 
-</script>
+    </script>
+</main>
+<footer>
+
+    <div class="external-links">
+        <h3>Links:</h3>
+
+        <a href="https://github.com/SKostanian/TreasureWebHunt">GitHub</a>
+        <a href="https://discord.com/invite/kJDTTMre">Teamwork Discord channel</a>
+    </div>
+</footer>
 
 </body>
+<!-- Source to the list.js file -->
+
 </html>

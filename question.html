@@ -3,16 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Question</title>
+    <link href="css/list.css" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 </head>
 <body>
+<header>
+    <h1>Treasure Hunt Adventure</h1>
+</header>
 
-<p id="Question-text"></p>
+<p class="select-hunt">Quiz</p>
+<main class="main">
+    <div class="question_container">
+        <p id="Question-text"></p>
+    </div>
+    <div class="answer_container">
+        <input type="text" id="answerInputField" />
+        <input type="button" value="Submit" onclick="answer()" />
+    </div>
+    <div>
+        <input type="button" value="Skip" onclick="answer()" />
+    </div>
 
-<input type="text" id="answerInputField" />
-<input type="button" value="Submit" onclick="answer()" />
+
+
+
+</main>
+<footer>
+
+    <div class="external-links">
+        <h3>Links:</h3>
+
+        <a href="https://github.com/SKostanian/TreasureWebHunt">GitHub</a>
+        <a href="https://discord.com/invite/kJDTTMre">Teamwork Discord channel</a>
+    </div>
+</footer>
 
 </body>
+<!-- Source to the list.js file -->
 <script src="js/cookies.js"></script>
 <script src="js/question.js"></script>
 </html>

@@ -56,3 +56,7 @@ function answer() {
         })
         .catch(error => console.error('Error fetching data:', error));
 }
+
+function skip() {
+
+}
