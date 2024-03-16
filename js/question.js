@@ -10,14 +10,12 @@ function getQuestion() {
         .then(jsonData => {
             console.log(jsonData);
             if (jsonData.status === "OK") {
+                // Access the "questionText" field from the parsed JSON
                 let questionText = jsonData.questionText;
                 questionElement.innerHTML = questionText;
                 console.log(questionElement)
             }
-            // Access the "questionText" field from the parsed JSON
-            // const questionText = data.questionText;
-            // console.log(questionText);
-            // document.getElementById("p_question").innerHTML = questionText;
+
 
             // Now you can use the questionText variable as needed
         })
@@ -25,3 +23,36 @@ function getQuestion() {
 }
 
 getQuestion()
+
+const answerElement = document.getElementById("answerInputField");
+function answer() {
+    //TODO - Read value from the input field.
+    const answer = answerElement.value;
+    let sessionID = getCookie("sessionID");
+
+    fetch(`https://codecyprus.org/th/api/answer?session=${sessionID}&answer=${answer}`)
+        .then(response => response.json())
+        .then(jsonData => {
+            answerElement.value = "";
+            console.log(jsonData);
+            if (jsonData.status === "OK") {
+
+                if (jsonData.completed) {
+                    //TODO - Move to the leaderboard.
+                    alert("TODO - Move to the leaderboard")
+                }
+
+                if (jsonData.correct) {
+                    alert(jsonData.message);
+                    getQuestion();
+                }
+                else {
+                    alert(jsonData.message);
+                }
+            }
+
+
+            // Now you can use the questionText variable as needed
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
