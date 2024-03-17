@@ -57,6 +57,10 @@ function getQuestion() {
                 let questionText = jsonData.questionText;
                 questionElement.innerHTML = questionText;
                 console.log(questionElement)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 92fb121 (Heuristic table and testing problem)
                 if (jsonData.canBeSkipped)
                 {
                     const answerContainer = document.querySelector('.answer_container');
@@ -66,7 +70,11 @@ function getQuestion() {
                     skipButton.onclick = skip;
                     answerContainer.appendChild(skipButton);
                 }
+<<<<<<< HEAD
                 if (jsonData.questionType == "BOOLEAN"){
+=======
+                if (jsonData.questionType === "BOOLEAN"){
+>>>>>>> 92fb121 (Heuristic table and testing problem)
                     console.log("bool");
                     const answerContainer = document.querySelector('.answer_container');
                     const button1 = document.createElement('input');
@@ -85,7 +93,11 @@ function getQuestion() {
                     answerContainer.appendChild(button2);
                 }
 
+<<<<<<< HEAD
                 if (jsonData.questionType == "INTEGER" || jsonData.questionType == "TEXT") {
+=======
+                if (jsonData.questionType === "INTEGER" || jsonData.questionType === "TEXT") {
+>>>>>>> 92fb121 (Heuristic table and testing problem)
                     const answerContainer = document.querySelector('.answer_container');
                     const answerInputField = document.createElement('input');
                     answerInputField.type = 'text';
@@ -97,7 +109,11 @@ function getQuestion() {
                     answerContainer.appendChild(answerInputField);
                     answerContainer.appendChild(submitButton);
                 }
+<<<<<<< HEAD
                 if (jsonData.questionType == "MCQ") {
+=======
+                if (jsonData.questionType === "MCQ") {
+>>>>>>> 92fb121 (Heuristic table and testing problem)
                     const answerContainer = document.querySelector('.answer_container');
                     const buttonA = document.createElement('input');
                     buttonA.type = "button";
@@ -132,34 +148,55 @@ function getQuestion() {
                     answerContainer.appendChild(buttonD);
                 }
 
+<<<<<<< HEAD
+=======
+                if (jsonData.completed === "true"){
+                    window.location.href='leaderboard.html';
+                }
+
+                if (jsonData.requiresLocation === "true"){
+                    // updateLocation();
+                }
+
+>>>>>>> 92fb121 (Heuristic table and testing problem)
             }
 
-
-            // Now you can use the questionText variable as needed
         })
         .catch(error => console.error('Error fetching data:', error));
 }
 
 getQuestion()
 
+<<<<<<< HEAD
 
 function answer() {
     const answerElement = document.getElementById("answerInputField");
     //TODO - Read value from the input field.
     const answer = answerElement.value;
+=======
+function skip() {
+
+>>>>>>> 92fb121 (Heuristic table and testing problem)
     let sessionID = getCookie("sessionID");
 
-    fetch(`https://codecyprus.org/th/api/answer?session=${sessionID}&answer=${answer}`)
+    fetch(`https://codecyprus.org/th/api/skip?session=${sessionID}`)
         .then(response => response.json())
         .then(jsonData => {
+<<<<<<< HEAD
             answerElement.value = "";
             console.log(sessionID);
             console.log(jsonData.canBeSkipped);
+=======
+
+            console.log(sessionID);
+
+>>>>>>> 92fb121 (Heuristic table and testing problem)
             console.log(jsonData);
             if (jsonData.status === "OK") {
 
                 if (jsonData.completed) {
                     //TODO - Move to the leaderboard.
+
                     alert("TODO - Move to the leaderboard")
                 }
 
@@ -169,6 +206,7 @@ function answer() {
                 }
                 else {
                     alert(jsonData.message);
+                    getQuestion();
                 }
                 if (jsonData.canBeSkipped) {
                     alert(jsonData.canBeSkipped);
@@ -282,8 +320,35 @@ function getScore() {
 
             }
 
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
 
-            // Now you can use the questionText variable as needed
+function getScore() {
+    let sessionID = getCookie("sessionID");
+
+    fetch(`https://codecyprus.org/th/api/score?session=${sessionID}`)
+        .then(response => response.json())
+        .then(jsonData => {
+
+            console.log(sessionID);
+
+            console.log(jsonData);
+            if (jsonData.status === "OK") {
+
+                if (jsonData.completed) {
+                    //TODO - Move to the leaderboard.
+                    alert("TODO - Move to the leaderboard");
+                }
+
+                if (jsonData.score) {
+                    const pScoreElement = document.querySelector('.p_score');
+                    if (pScoreElement) {
+                        // Update the text content of the element
+                        pScoreElement.textContent = jsonData.score;
+                    }
+                }
+            }
         })
         .catch(error => console.error('Error fetching data:', error));
 }

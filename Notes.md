@@ -15,3 +15,5 @@
 
 - Meeting 8: Creating the design in motion using CSS and JavaScript, Sergei. Date: 07/03/2024 17:22
 
+- Meeting 9: Creating the question flow and answers function with buttons, Sergei and Spartak. Date: 3/16/2024 01:16
+
