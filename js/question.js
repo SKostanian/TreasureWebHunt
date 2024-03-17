@@ -3,6 +3,7 @@ const questionElement = document.getElementById("Question-text");
 
 function getQuestion() {
     let sessionID = getCookie("sessionID");
+    getScore();
     const answerContainer = document.querySelector('.answer_container');
     const skipButton = answerContainer.querySelector('input[type="button"][value="Skip"]');
     if (skipButton) {
@@ -252,3 +253,37 @@ function skip() {
         .catch(error => console.error('Error fetching data:', error));
 }
 
+function getScore() {
+    let sessionID = getCookie("sessionID");
+
+    fetch(`https://codecyprus.org/th/api/score?session=${sessionID}`)
+        .then(response => response.json())
+        .then(jsonData => {
+
+            console.log(sessionID);
+
+            console.log(jsonData);
+            if (jsonData.status === "OK") {
+
+                if (jsonData.completed) {
+                    //TODO - Move to the leaderboard.
+                    alert("TODO - Move to the leaderboard");
+                }
+
+                if (jsonData.score) {
+                    const pScoreElement = document.querySelector('.p_score');
+                    if (pScoreElement) {
+                        // Update the text content of the element
+                        pScoreElement.textContent = jsonData.score;
+                    }
+
+                }
+
+
+            }
+
+
+            // Now you can use the questionText variable as needed
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
