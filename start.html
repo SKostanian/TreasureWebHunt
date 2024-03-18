@@ -19,57 +19,19 @@
         <input type="text" id="visitor_name" placeholder="Your Name" required>
         <button onclick="start()">Submit</button>
     </div>
-<<<<<<< HEAD
-    <script>
 
-        const visitorNameElement = document.getElementById("visitor_name");
-
-        function start() {
-            let playerName = visitorNameElement.value;
-            const appName = "Group-B1-App";
-            const params = new URLSearchParams(location.search);
-            let treasureHuntID = params.get("treasure-hunt-id");
-            fetch(`https://codecyprus.org/th/api/start?player=${playerName}&app=${appName}&treasure-hunt-id=${treasureHuntID}`)
-                .then(response => response.json())
-                .then(jsonObject => {
-                    console.log(jsonObject);
-                    if (jsonObject.status === "OK") {
-                        let sessionID = jsonObject.session;
-                        setCookie("sessionID", sessionID);
-                        location.href = "question.html";
-                    }
-                    else {
-                        alert(jsonObject.errorMessages);
-                    }
-                });
-        }
-
-    </script>
 </main>
 <footer>
 
     <div class="external-links">
         <h3>Links:</h3>
 
-=======
-</main>
-<footer>
-
-    <div class="external-links">
-        <h3>Links:</h3>
-
->>>>>>> 92fb121 (Heuristic table and testing problem)
         <a href="https://github.com/SKostanian/TreasureWebHunt">GitHub</a>
         <a href="https://discord.com/invite/kJDTTMre">Teamwork Discord channel</a>
     </div>
 </footer>
 
 </body>
-<<<<<<< HEAD
-<!-- Source to the list.js file -->
-
-=======
     <!-- Source to the start.js file -->
     <script src="js/start.js"></script>
->>>>>>> 92fb121 (Heuristic table and testing problem)
 </html>
