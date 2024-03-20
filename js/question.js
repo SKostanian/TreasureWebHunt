@@ -131,6 +131,9 @@ function getQuestion() {
                     }
                     answerContainer.appendChild(buttonD);
                 }
+                if (jsonData.requiresLocation){
+
+                }
 
             }
 
@@ -221,6 +224,8 @@ function static_answer(answer) {
 
 function skip() {
 
+    const iSskip = confirm("Are you sure to skip?");
+    if (!iSskip) return;
     let sessionID = getCookie("sessionID");
 
     fetch(`https://codecyprus.org/th/api/skip?session=${sessionID}`)
@@ -233,18 +238,13 @@ function skip() {
             if (jsonData.status === "OK") {
 
                 if (jsonData.completed) {
-                    //TODO - Move to the leaderboard.
-                    alert("TODO - Move to the leaderboard")
-                }
-
-                if (jsonData.correct) {
-                    alert(jsonData.message);
-                    getQuestion();
+                    location.href = "leaderboard.html";
                 }
                 else {
                     alert(jsonData.message);
                     getQuestion();
                 }
+
             }
 
 
@@ -266,8 +266,7 @@ function getScore() {
             if (jsonData.status === "OK") {
 
                 if (jsonData.completed) {
-                    //TODO - Move to the leaderboard.
-                    alert("TODO - Move to the leaderboard");
+                    location.href = "leaderboard.html";
                 }
 
                 if (jsonData.score) {

@@ -12,6 +12,7 @@ function start() {
             if (jsonObject.status === "OK") {
                 let sessionID = jsonObject.session;
                 setCookie("sessionID", sessionID);
+
                 location.href = "question.html";
             }
             else {
