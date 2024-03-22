@@ -22,68 +22,6 @@ async function callApi(name) {
         });
 }
 
-// Using the addEventListener method instead of a usual function
-// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
-// treasureHuntElement.addEventListener('click', function (event){
-//     // The condition that checks if the element that was clicked on is a <li> tag.
-//     // source: https://www.w3schools.com/jsref/event_target.asp
-//
-//     if (event.target.tagName === 'LI'){
-//         // Class list property
-//         // source: https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
-//         // I have used this property in conditions as otherwise I was returning the previous alert messages in list2 and list3
-//         const classList = event.target.classList;
-//
-//         // source: https://developer.mozilla.org/en-US/docs/Web/API/Node/contains
-//         if (HasName)
-//         {
-//             const linkElement = event.target.closest('a[href]');
-//
-//             // Check if such an element exists
-//             if (linkElement) {
-//                 // Get the href attribute of the closest <a> element
-//                 const link = linkElement.getAttribute('href');
-//                 clickedLink = link;
-//                 getTreasureHuntId(link);
-//                 // Now you have the link stored in the variable 'link'
-//                 // You can use it as needed, for example, displaying it in an alert:
-//                 console.log("Clicked link: " + link);
-//             }
-//
-//             if (classList.contains('list1')) {
-//                 alert("Starting treasure hunt: UCLan Cyprus Science Day 2024");
-//             }
-//             if (classList.contains('list2')) {
-//                 alert("Starting treasure hunt: Code Cyprus 2024");
-//             }
-//             else if (classList.contains('list3')) {
-//                 alert("Starting treasure hunt: Sample treasure hunt");
-//
-//
-//             }
-//             else if (classList.contains('list4')) {
-//                 alert("Starting treasure hunt: A future treasure hunt");
-//             }
-//         }
-//         else
-//         {
-//             alert("Fill in your name please");
-//             event.preventDefault();
-//         }
-//
-//     }
-// });
-
-
-// function updateLinks(name) {
-//     const links = treasureHuntElement.querySelectorAll('a'); // Select all anchor tags within treasureHuntElement
-//     links.forEach(link => {
-//         const href = link.getAttribute('href'); // Get the href attribute value
-//         const updatedHref = href.replace(/player=[^&]*/, 'player=' + encodeURIComponent(name)); // Replace the player parameter value with the new name
-//         link.setAttribute('href', updatedHref); // Set the updated href attribute value
-//     });
-// }
-
 function getTreasureHuntId(url) {
     fetch(url)
         .then(response => response.json())
@@ -98,13 +36,5 @@ function getTreasureHuntId(url) {
 }
 
 var visitorName = "";
-var HasName = false;
-var clickedLink = "";
-function submitName() {
-    visitorName = document.getElementById("visitor_name").value;
-    alert("Thank you, " + visitorName + ", for submitting your name!");
-    HasName = true;
-    updateLinks(visitorName);
-}
 
 callApi(visitorName);

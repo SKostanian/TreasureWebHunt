@@ -1,4 +1,5 @@
 function loadLeaderboard(){
+    //urlsearch constructor with API parameters
     const url = "https://codecyprus.org/th/api/leaderboard?" + new URLSearchParams({
         session: getCookie("sessionID"),
         sorted: true,

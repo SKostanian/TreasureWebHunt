@@ -17,3 +17,5 @@
 
 - Meeting 9: Creating the question flow and answers function with buttons, Sergei and Spartak. Date: 3/16/2024 01:16
 
+- Meeting 10: Creating the leaderboard and fixing the geoposition to start when the questions start, Spartak. Date: 3/20/2024 23:23
+
