@@ -1,5 +1,5 @@
 # **Meet Our Team!**
-### Spartak and Dogush!!!
+### Spartak, Sergei and Dogush!!!
 1. We are responsible for doing the TreasureHunt application! 
 2. We are cooperating together using instagram messenger and discord!
    - Spartak is accountable for functionality, JavaScript and HTML!
