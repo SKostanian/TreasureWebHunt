@@ -5,9 +5,10 @@
     <title>Question</title>
     <link href="css/list.css" type="text/css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <script src="js/instascan.min.js"></script>
 </head>
 <body>
+
     <header>
         <h1>Treasure Hunt Adventure</h1>
     </header>
@@ -19,15 +20,20 @@
     </div>
 
     <main class="main">
+
+
         <div class="question_container">
             <p id="Question-text"></p>
+
         </div>
         <div class="answer_container">
 
         </div>
         <div>
-
+            <video id="preview"></video>
+            <button class="start-button" id="button">Start the camera</button>
         </div>
+
 
     </main>
     <footer>
@@ -46,4 +52,6 @@
 <script src="js/question.js"></script>
 <script src="js/answer.js"></script>
 <script src="js/geolocation.js"></script>
+<script src="js/qr-code.js"></script>
+
 </html>
