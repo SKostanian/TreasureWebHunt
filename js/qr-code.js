@@ -31,6 +31,7 @@ var scanner = new Instascan.Scanner(opts);
 
 document.getElementById("button").addEventListener("click", function(){
     Instascan.Camera.getCameras().then(function (cameras) {
+        console.log(cameras);
         // find if the device supports the back camera
         // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
         let backCamera = cameras.find(function(camera) {
