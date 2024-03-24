@@ -29,16 +29,25 @@ var opts = {
 
 var scanner = new Instascan.Scanner(opts);
 
-let bool = false;
-
 document.getElementById("button").addEventListener("click", function(){
     Instascan.Camera.getCameras().then(function (cameras) {
-        if (cameras.length > 0) {
-            scanner.start(cameras[0]);
-        } else {
-            console.error('No cameras found.');
-            alert("No cameras found.");
+        // find if the device supports the back camera
+        // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+        let backCamera = cameras.find(function(camera) {
+            // source: https://forum.freecodecamp.org/t/javascript-string-prototype-indexof-index-of-explained-with-examples/15936
+            return camera.name.indexOf('back') !== -1;
+        });
+        // if back camera is true then start the scanner
+        if (backCamera){
+            scanner.start(backCamera);
         }
+        // else pop up the message that back camera is not found
+        else {
+            console.error('No back camera found.');
+            alert("No back camera found.");
+        }
+
+
     }).catch(function (e) {
         console.error(e);
     });
