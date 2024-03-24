@@ -64,6 +64,7 @@ function getQuestion() {
                     skipButton.type = 'button';
                     skipButton.value = 'Skip';
                     skipButton.onclick = skip;
+                    skipButton.classList.add("skip_btn");
                     answerContainer.appendChild(skipButton);
                 }
                 if (jsonData.questionType == "BOOLEAN"){
@@ -72,12 +73,14 @@ function getQuestion() {
                     const button1 = document.createElement('input');
                     button1.type = 'button'; // Set the button text
                     button1.value = "True";
+                    button1.classList.add("skip_btn");
                     button1.onclick = function () {
                         static_answer("true");
                     };
                     const button2 = document.createElement('input');
                     button2.type = 'button'; // Set the button text
                     button2.value = "False";
+                    button2.classList.add("skip_btn");
                     button2.onclick = function () {
                         static_answer("false");
                     };
@@ -90,10 +93,12 @@ function getQuestion() {
                     const answerInputField = document.createElement('input');
                     answerInputField.type = 'text';
                     answerInputField.id = 'answerInputField';
+                    answerInputField.classList.add("answer_field");
                     const submitButton = document.createElement('input');
                     submitButton.type = 'button';
                     submitButton.value = 'Submit';
                     submitButton.onclick = answer;
+                    submitButton.classList.add("submit_btn");
                     answerContainer.appendChild(answerInputField);
                     answerContainer.appendChild(submitButton);
                 }
@@ -102,6 +107,7 @@ function getQuestion() {
                     const buttonA = document.createElement('input');
                     buttonA.type = "button";
                     buttonA.value = "A";
+                    buttonA.classList.add("skip_btn");
                     buttonA.onclick = function () {
                         static_answer("A");
                     }
@@ -110,6 +116,7 @@ function getQuestion() {
                     const buttonB = document.createElement('input');
                     buttonB.type = "button";
                     buttonB.value = "B";
+                    buttonB.classList.add("skip_btn");
                     buttonB.onclick = function () {
                         static_answer("B");
                     }
@@ -118,6 +125,7 @@ function getQuestion() {
                     const buttonC = document.createElement('input');
                     buttonC.type = "button";
                     buttonC.value = "C";
+                    buttonC.classList.add("skip_btn");
                     buttonC.onclick = function () {
                         static_answer("C");
                     }
@@ -126,6 +134,7 @@ function getQuestion() {
                     const buttonD = document.createElement('input');
                     buttonD.type = "button";
                     buttonD.value = "D";
+                    buttonD.classList.add("skip_btn");
                     buttonD.onclick = function () {
                         static_answer("D");
                     }

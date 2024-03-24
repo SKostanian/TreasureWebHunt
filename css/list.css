@@ -57,6 +57,7 @@ li:active {
     background-color: #3498db;
     padding: 20px;
     border-radius: 10px;
+    font-size: 32px;
     border: 2px solid #ccc;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -89,4 +90,64 @@ footer {
 .main{
 
 
+}
+
+.skip_btn{
+    font-size: 32px;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 100px;
+    border-color: rgb(85, 188, 252);
+    background-color: rgb(85, 188, 252);
+    outline: none;
+    transition: background-color 0.3s linear;
+    padding: 14px 54px;
+}
+
+.skip_btn:hover{
+    background-color: rgb(59, 133, 190);
+}
+
+.question_container{
+    font-size: 25px;
+}
+
+.answer_field{
+    font-size: 42px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    border-style: dashed;
+}
+
+.submit_btn{
+    font-size: 32px;
+    margin-left: 10px;
+    text-decoration: none;
+    border-radius: 100px;
+    border-color: rgb(85, 188, 252);
+    background-color: rgb(85, 188, 252);
+    outline: none;
+    transition: background-color 0.3s linear;
+    padding: 14px 54px;
+}
+
+.submit_btn:hover{
+    background-color: rgb(59, 133, 190);
+}
+
+.score{
+    font-size: 24px;
+}
+
+.p_score{
+    font-size: 24px;
+    color: #3e8e41;
+}
+
+.list1{
+    font-size: 24px;
+}
+
+.list2{
+    font-size: 24px;
 }
