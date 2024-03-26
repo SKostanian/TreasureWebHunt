@@ -56,6 +56,7 @@ p {
 .social-media img {
     width: 50px;
     margin-right: 2px;
+    height: 100%
 }
 
 .start-button {

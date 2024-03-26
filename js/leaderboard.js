@@ -16,7 +16,7 @@ function loadLeaderboard(){
                 const players = data.leaderboard;
                 const prize = data.hasPrize;
 
-                textPrize.textContent = prize ? "You Won! Congratulations!" : "You didnot win! Try again!";
+                textPrize.textContent = prize ? "You Won! Congratulations!" : "You did not win! Try again!";
 
                 for (let playerRow of players){
                     const row = document.createElement("tr");
@@ -37,6 +37,7 @@ function loadLeaderboard(){
                 alert("Failed to load the leaderboard");
             }
         })
+
         .catch(error => {
             console.error(error)
             alert("Failed to load the leaderboard");
