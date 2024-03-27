@@ -23,8 +23,16 @@ function loadLeaderboard(){
                     const player = document.createElement("td");
                     const time = document.createElement("td");
                     const score = document.createElement("td");
-                    player.textContent = playerRow.player;
-                    time.textContent = playerRow.completionTime;
+                    player.textContent = String(playerRow.player).substring(0,10);
+                    const date = playerRow.completionTime ? new Date(playerRow.completionTime) : null;
+                    time.textContent = date ? date.toLocaleString("en-CA", {
+                        year: "numeric",
+                        month: "numeric",
+                        day: "numeric",
+                        hour: "numeric",
+                        minute: "numeric",
+                    })
+                    : "-";
                     score.textContent = playerRow.score;
                     row.appendChild(player);
                     row.appendChild(time);

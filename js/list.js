@@ -12,9 +12,13 @@ async function callApi(name) {
                 // then loop through the treasureHunts list
                 for (let i = 0; i < treasureHunts.length; i++) {
                     const item = treasureHunts[i];
+                    const {startsOn} = item;
+                    const isActive = new Date() > new Date(startsOn);
+                    const classButton = isActive ? "button-primary" : "button-disable";
+                    const buttonLink = isActive ? `href="start.html?treasure-hunt-id=${item.uuid}" target="_blank"` : "";
                     // Using the template literals and string interpolation to iterate through the treasureHunts names and uuid (as uuid is different for each treasure hunt)
-                    const listItem = `<a href="start.html?treasure-hunt-id=${item.uuid}" target="_blank">
-                        <li class="list${i + 1}">${item.name}</li></a>`
+                    const listItem = `<a class="link-reset" ${buttonLink}>
+                        <li class="${classButton}">${item.name}</li></a>`
                     treasureHuntElement.innerHTML += listItem;
                     // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
                 }
@@ -35,6 +39,5 @@ function getTreasureHuntId(url) {
         .catch(error => console.error('Error fetching data:', error));
 }
 
-var visitorName = "";
 
-callApi(visitorName);
+callApi();

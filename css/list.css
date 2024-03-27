@@ -31,21 +31,31 @@ li {
     display: block;
     padding: 10px 20px;
     margin: 10px;
-    background-color: #4CAF50;
     color: white;
     text-align: center;
-    text-decoration: none;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-li:hover {
+.button-primary {
+    background-color: #4CAF50;
+}
+
+.button-disable {
+    background-color: #666666;
+}
+
+.link-reset {
+    text-decoration: none;
+}
+
+li:not(.button-disable):hover {
     background-color: #3e8e41
 }
 
-li:active {
+li:not(.button-disable):active {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
@@ -54,7 +64,6 @@ li:active {
 .select-hunt {
     text-align: center;
     font-family: Arial, sans-serif;
-    font-size: 18px;
     background-color: #3498db;
     padding: 20px;
     border-radius: 10px;
@@ -75,33 +84,11 @@ footer {
     align-items: center;
 }
 
-@media only screen and (max-width: 600px) {
-    main {
-        font-size: 20px;
-    }
-}
-
 .div_name{
     justify-content: center;
     display: flex;
     align-items: center;
-
-}
-
-.skip_btn{
-    font-size: 32px;
-    margin-right: 10px;
-    text-decoration: none;
-    border-radius: 100px;
-    border-color: rgb(85, 188, 252);
-    background-color: rgb(85, 188, 252);
-    outline: none;
-    transition: background-color 0.3s linear;
-    padding: 14px 54px;
-}
-
-.skip_btn:hover{
-    background-color: rgb(59, 133, 190);
+    gap: 10px;
 }
 
 .question_container{
@@ -112,11 +99,11 @@ footer {
     font-size: 42px;
     border-radius: 5px;
     border-style: dashed;
+    width: 70%;
 }
 
 .submit_btn{
     font-size: 32px;
-    margin-left: 10px;
     text-decoration: none;
     border-radius: 100px;
     border-color: rgb(85, 188, 252);
@@ -145,4 +132,28 @@ footer {
 
 .list2{
     font-size: 24px;
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        font-size: 20px;
+    }
+    .div_name {
+        flex-direction: column;
+    }
+    .external-links {
+        flex-direction: column;
+    }
+    .answer_field {
+        width: 100%;
+    }
+    .answer_container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .submit_btn {
+        font-size: 20px;
+        padding: 7px 20px;
+    }
 }

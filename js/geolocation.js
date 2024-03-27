@@ -8,9 +8,6 @@ function getLocation() {
     }
 }
 
-// function showPosition(position) {
-//     alert("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
-// }
 let sessionID = getCookie("sessionID");
 
 // updateLocation function
@@ -19,7 +16,6 @@ function updateLocation(position){
         .then(response => response.json())
         .then(jsonData => {
             if (jsonData.status === "OK") {
-                // setInterval(getLocation, 30000);
             }
         })
 }

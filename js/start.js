@@ -20,3 +20,19 @@ function start() {
             }
         });
 }
+
+window.onload = function(){
+    const sessionID = getCookie("sessionID");
+    if (sessionID){
+        // const main = document.querySelector(".main");
+        // const button = document.createElement("button");
+        // button.textContent
+        const result = confirm("We have an unfinished game, do you want to continue?");
+        if (result){
+            location.href = "question.html";
+        }
+        else {
+            setCookie("sessionID", "");
+        }
+    }
+}

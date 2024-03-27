@@ -110,14 +110,12 @@ p {
 
 .main.element-show{
     opacity: 1;
-
     transition: all 1s;
     transform: translateX(0px);
 }
 
 .external-links.element-show{
     opacity: 1;
-
     transition: all 1s;
     transform: translateY(0px);
 }

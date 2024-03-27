@@ -65,7 +65,7 @@ function getQuestion() {
                     skipButton.type = 'button';
                     skipButton.value = 'Skip';
                     skipButton.onclick = skip;
-                    skipButton.classList.add("skip_btn");
+                    skipButton.classList.add("submit_btn");
                     answerContainer.appendChild(skipButton);
                 }
                 if (jsonData.questionType == "BOOLEAN"){
@@ -74,14 +74,14 @@ function getQuestion() {
                     const button1 = document.createElement('input');
                     button1.type = 'button'; // Set the button text
                     button1.value = "True";
-                    button1.classList.add("skip_btn");
+                    button1.classList.add("submit_btn");
                     button1.onclick = function () {
                         static_answer("true");
                     };
                     const button2 = document.createElement('input');
                     button2.type = 'button'; // Set the button text
                     button2.value = "False";
-                    button2.classList.add("skip_btn");
+                    button2.classList.add("submit_btn");
                     button2.onclick = function () {
                         static_answer("false");
                     };
@@ -92,7 +92,7 @@ function getQuestion() {
                 if (jsonData.questionType == "INTEGER" || jsonData.questionType == "TEXT") {
                     const answerContainer = document.querySelector('.answer_container');
                     const answerInputField = document.createElement('input');
-                    answerInputField.type = 'text';
+                    answerInputField.type = jsonData.questionType == "INTEGER" ? "number" : 'text';
                     answerInputField.id = 'answerInputField';
                     answerInputField.classList.add("answer_field");
                     const submitButton = document.createElement('input');
@@ -108,7 +108,7 @@ function getQuestion() {
                     const buttonA = document.createElement('input');
                     buttonA.type = "button";
                     buttonA.value = "A";
-                    buttonA.classList.add("skip_btn");
+                    buttonA.classList.add("submit_btn");
                     buttonA.onclick = function () {
                         static_answer("A");
                     }
@@ -117,7 +117,7 @@ function getQuestion() {
                     const buttonB = document.createElement('input');
                     buttonB.type = "button";
                     buttonB.value = "B";
-                    buttonB.classList.add("skip_btn");
+                    buttonB.classList.add("submit_btn");
                     buttonB.onclick = function () {
                         static_answer("B");
                     }
@@ -126,7 +126,7 @@ function getQuestion() {
                     const buttonC = document.createElement('input');
                     buttonC.type = "button";
                     buttonC.value = "C";
-                    buttonC.classList.add("skip_btn");
+                    buttonC.classList.add("submit_btn");
                     buttonC.onclick = function () {
                         static_answer("C");
                     }
@@ -135,7 +135,7 @@ function getQuestion() {
                     const buttonD = document.createElement('input');
                     buttonD.type = "button";
                     buttonD.value = "D";
-                    buttonD.classList.add("skip_btn");
+                    buttonD.classList.add("submit_btn");
                     buttonD.onclick = function () {
                         static_answer("D");
                     }
@@ -154,83 +154,6 @@ function getQuestion() {
 }
 
 getQuestion()
-
-
-function answer() {
-    const answerElement = document.getElementById("answerInputField");
-    //TODO - Read value from the input field.
-    const answer = answerElement.value;
-    let sessionID = getCookie("sessionID");
-
-    fetch(`https://codecyprus.org/th/api/answer?session=${sessionID}&answer=${answer}`)
-        .then(response => response.json())
-        .then(jsonData => {
-            answerElement.value = "";
-            console.log(sessionID);
-            console.log(jsonData.canBeSkipped);
-            console.log(jsonData);
-            if (jsonData.status === "OK") {
-
-                if (jsonData.completed) {
-                    //TODO - Move to the leaderboard.
-                    alert("TODO - Move to the leaderboard")
-                }
-
-                if (jsonData.correct) {
-                    alert(jsonData.message);
-                    getQuestion();
-                }
-                else {
-                    alert(jsonData.message);
-                }
-                if (jsonData.canBeSkipped) {
-                    alert(jsonData.canBeSkipped);
-                }
-            }
-
-
-            // Now you can use the questionText variable as needed
-        })
-        .catch(error => console.error('Error fetching data:', error));
-}
-
-function static_answer(answer) {
-
-    //TODO - Read value from the input field.
-
-    let sessionID = getCookie("sessionID");
-
-    fetch(`https://codecyprus.org/th/api/answer?session=${sessionID}&answer=${answer}`)
-        .then(response => response.json())
-        .then(jsonData => {
-
-            console.log(sessionID);
-            console.log(jsonData.canBeSkipped);
-            console.log(jsonData);
-            if (jsonData.status === "OK") {
-
-                if (jsonData.completed) {
-                    //TODO - Move to the leaderboard.
-                    alert("TODO - Move to the leaderboard")
-                }
-
-                if (jsonData.correct) {
-                    alert(jsonData.message);
-                    getQuestion();
-                }
-                else {
-                    alert(jsonData.message);
-                }
-                if (jsonData.canBeSkipped) {
-                    alert(jsonData.canBeSkipped);
-                }
-            }
-
-
-            // Now you can use the questionText variable as needed
-        })
-        .catch(error => console.error('Error fetching data:', error));
-}
 
 function skip() {
 

@@ -1,8 +1,12 @@
 
 function answer() {
     const answerElement = document.getElementById("answerInputField");
-    const answer = answerElement.value;
     let sessionID = getCookie("sessionID");
+
+    const answer = String(answerElement.value).trim();
+    if (!answer){
+        return alert("Input an answer!");
+    }
 
     fetch(`https://codecyprus.org/th/api/answer?session=${sessionID}&answer=${answer}`)
         .then(response => response.json())
