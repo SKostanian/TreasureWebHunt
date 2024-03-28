@@ -141,14 +141,9 @@ function getQuestion() {
                     }
                     answerContainer.appendChild(buttonD);
                 }
-                if (jsonData.requiresLocation){
-
-                }
 
             }
 
-
-            // Now you can use the questionText variable as needed
         })
         .catch(error => console.error('Error fetching data:', error));
 }
@@ -180,8 +175,6 @@ function skip() {
 
             }
 
-
-            // Now you can use the questionText variable as needed
         })
         .catch(error => console.error('Error fetching data:', error));
 }
@@ -211,11 +204,8 @@ function getScore() {
 
                 }
 
-
             }
 
-
-            // Now you can use the questionText variable as needed
         })
         .catch(error => console.error('Error fetching data:', error));
 }

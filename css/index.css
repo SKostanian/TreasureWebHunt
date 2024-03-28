@@ -83,12 +83,6 @@ p {
     align-items: center;
 }
 
-@media only screen and (max-width: 600px) {
-    main {
-        font-size: 20px;
-    }
-}
-
 .h1_title{
     opacity: 0;
     transform: translateY(200px);
@@ -124,4 +118,14 @@ p {
     opacity: 0;
     transform: translateY(200px);
     transition: all 1.5s;
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        font-size: 20px;
+    }
+    .external-links {
+        flex-direction: column;
+        gap: 20px;
+    }
 }

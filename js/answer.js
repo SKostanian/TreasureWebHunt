@@ -17,11 +17,6 @@ function answer() {
             console.log(jsonData);
             if (jsonData.status === "OK") {
 
-                if (jsonData.completed) {
-                    //TODO - Move to the leaderboard.
-                    alert("TODO - Move to the leaderboard")
-                }
-
                 if (jsonData.correct) {
                     alert(jsonData.message);
                     getQuestion();
@@ -53,11 +48,6 @@ function static_answer(answer) {
             console.log(jsonData);
             if (jsonData.status === "OK") {
 
-                if (jsonData.completed) {
-                    //TODO - Move to the leaderboard.
-                    alert("TODO - Move to the leaderboard")
-                }
-
                 if (jsonData.correct) {
                     alert(jsonData.message);
                     getQuestion();
@@ -69,9 +59,6 @@ function static_answer(answer) {
                     alert(jsonData.canBeSkipped);
                 }
             }
-
-
-            // Now you can use the questionText variable as needed
         })
         .catch(error => console.error('Error fetching data:', error));
 }

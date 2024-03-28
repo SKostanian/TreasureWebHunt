@@ -11,7 +11,7 @@ var opts = {
     // facing mode to environment to enable the back camera on a mobile device,
     // source: https://developer.mozilla.org/en-US/docs/Web/API/MediaTrackConstraints/facingMode
     facingMode: 'environment',
-
+    // mirror set to false to stop mirroring the screen
     mirror: false,
     // Whether to include the scanned image data as part of the scan result. See the
     // "scan" event for image format details. Default false.

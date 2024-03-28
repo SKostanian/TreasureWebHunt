@@ -143,6 +143,7 @@ footer {
     }
     .external-links {
         flex-direction: column;
+        gap: 20px;
     }
     .answer_field {
         width: 100%;
