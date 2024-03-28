@@ -31,30 +31,44 @@ var opts = {
 
 var scanner = new Instascan.Scanner(opts);
 
-document.getElementById("button").addEventListener("click", function(){
-    getLocation();
-    Instascan.Camera.getCameras().then(function (cameras) {
-        console.log(cameras);
-        // find if the device supports the back camera
-        // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
-        let backCamera = cameras.find(function(camera) {
-            // source: https://forum.freecodecamp.org/t/javascript-string-prototype-indexof-index-of-explained-with-examples/15936
-            return camera.name.indexOf('back') !== -1;
-        });
-        // if back camera is true then start the scanner
-        if (backCamera){
-            scanner.start(backCamera);
-        }
-        // else pop up the message that back camera is not found
-        else {
-            console.error('No back camera found.');
-            alert("No back camera found.");
-        }
+let isActive = false;
 
-    }).catch(function (e) {
-        console.error(e);
-    });
-})
+function toggleCamera(){
+    if (isActive){
+        scanner.stop();
+        document.getElementById('preview').style.display = "none";
+        isActive = false;
+        document.getElementById('button').textContent = "Start Camera";
+    }
+    else {
+        getLocation();
+        Instascan.Camera.getCameras().then(function (cameras) {
+            // find if the device supports the back camera
+            // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+            let backCamera = cameras.find(function(camera) {
+                // source: https://forum.freecodecamp.org/t/javascript-string-prototype-indexof-index-of-explained-with-examples/15936
+                return camera.name.indexOf('back') !== -1;
+            });
+            // if back camera is true then start the scanner
+            if (backCamera){
+                scanner.start(backCamera);
+                isActive = true;
+                document.getElementById('preview').style.display = "block";
+                document.getElementById('button').textContent = "Stop Camera";
+            }
+            // else pop up the message that back camera is not found
+            else {
+                console.error('No back camera found.');
+                alert("No back camera found.");
+            }
+
+        }).catch(function (e) {
+            console.error(e);
+        });
+    }
+}
+
+document.getElementById('button').addEventListener("click", toggleCamera);
 
 scanner.addListener('scan', function (content) {
     console.log(content);
