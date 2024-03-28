@@ -19,3 +19,5 @@
 
 - Meeting 10: Creating the leaderboard and fixing the geoposition to start when the questions start, Spartak. Date: 3/20/2024 23:23
 
+- Meeting 11: Fixing bugs with camera, with Treasure Hunts lists and creating responsiveness, Spartak, Dogush and Sergei together Date: 3/28/2024 16:58
+
