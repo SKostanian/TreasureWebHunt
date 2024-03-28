@@ -5,9 +5,9 @@
 
 - Meeting 3: Creating marketing posts on social media profiles and creating a new discord channel for Treasure Hunt together Spartak and Dogush. Date: 07/02/2024 20:36
 
-- Meeting 4: Posting the changes on the GitHub and hosting a website through GitHub pages. Date: 08/02/2024 12:00
+- Meeting 4: Posting the changes on the GitHub and hosting a website through GitHub pages, Spartak. Date: 08/02/2024 12:00
 
-- Meeting 5: Completing the 1st Milestone! Date: 08/02/2024 12:02
+- Meeting 5: Completing the 1st Milestone! Together Spartak and Dogush via instagram. Date: 08/02/2024 12:02
 
 - Meeting 6: Creating a js script file to retrieve TreasureHunt lists, Spartak. Date: 02/03/2024 14:24
 

@@ -1,7 +1,7 @@
 
-
 const questionElement = document.getElementById("Question-text");
 
+// getQuestion function which creates the answer buttons and skip elements
 function getQuestion() {
     let sessionID = getCookie("sessionID");
     getScore();
@@ -150,6 +150,7 @@ function getQuestion() {
 
 getQuestion()
 
+// Retrieving the skip api call
 function skip() {
 
     const iSskip = confirm("Are you sure to skip?");
@@ -179,6 +180,7 @@ function skip() {
         .catch(error => console.error('Error fetching data:', error));
 }
 
+// Getting the score by retrieving the score api call
 function getScore() {
     let sessionID = getCookie("sessionID");
 

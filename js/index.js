@@ -1,3 +1,4 @@
+// Dynamically popping up the elements on an index page
 function onEntry(entry) {
     entry.forEach(change => {
         if (change.isIntersecting) {

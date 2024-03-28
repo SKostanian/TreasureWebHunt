@@ -1,5 +1,6 @@
 const visitorNameElement = document.getElementById("visitor_name");
 
+// Start function which sets the session id of the user and transfers to question page
 function start() {
     let playerName = visitorNameElement.value;
     const appName = "Group-B1-App";
@@ -21,12 +22,11 @@ function start() {
         });
 }
 
+// If the user went out of the game, accidentally or by himself he may restore his previous question state,
+// popping up the message for him to continue
 window.onload = function(){
     const sessionID = getCookie("sessionID");
     if (sessionID){
-        // const main = document.querySelector(".main");
-        // const button = document.createElement("button");
-        // button.textContent
         const result = confirm("We have an unfinished game, do you want to continue?");
         if (result){
             location.href = "question.html";

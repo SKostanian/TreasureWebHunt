@@ -33,13 +33,17 @@ var scanner = new Instascan.Scanner(opts);
 
 let isActive = false;
 
+// Toggle camera function which toggles the camera
 function toggleCamera(){
+    // User needs to start the camera and hide it
     if (isActive){
+        // Here camera stops
         scanner.stop();
         document.getElementById('preview').style.display = "none";
         isActive = false;
         document.getElementById('button').textContent = "Start Camera";
     }
+    // He may scan it on a mobile device and then stop it by just clicking one button
     else {
         getLocation();
         Instascan.Camera.getCameras().then(function (cameras) {
@@ -67,7 +71,7 @@ function toggleCamera(){
         });
     }
 }
-
+// Calling this function from above
 document.getElementById('button').addEventListener("click", toggleCamera);
 
 scanner.addListener('scan', function (content) {

@@ -5,6 +5,7 @@ function loadLeaderboard(){
         sorted: true,
         limit: 20
     })
+    // Fetching the url to call the leaderboard api call
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -15,7 +16,7 @@ function loadLeaderboard(){
 
                 const players = data.leaderboard;
                 const prize = data.hasPrize;
-
+                // You can either win or lose
                 textPrize.textContent = prize ? "You Won! Congratulations!" : "You did not win! Try again!";
 
                 for (let playerRow of players){
@@ -23,7 +24,10 @@ function loadLeaderboard(){
                     const player = document.createElement("td");
                     const time = document.createElement("td");
                     const score = document.createElement("td");
+                    // Cutting the player nicknames by only 10 characters
                     player.textContent = String(playerRow.player).substring(0,10);
+                    // Check if there is a value in completionTime,
+                    // if there is, we convert the number of milliseconds to date, otherwise gets null "-"
                     const date = playerRow.completionTime ? new Date(playerRow.completionTime) : null;
                     time.textContent = date ? date.toLocaleString("en-CA", {
                         year: "numeric",

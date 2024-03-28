@@ -10,7 +10,7 @@ function getLocation() {
 
 let sessionID = getCookie("sessionID");
 
-// updateLocation function
+// UpdateLocation function which retrieves the location api call
 function updateLocation(position){
     fetch(`https://codecyprus.org/th/api/location?session=${sessionID}&latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`)
         .then(response => response.json())
@@ -20,6 +20,7 @@ function updateLocation(position){
         })
 }
 
+// Set interval to 30 seconds to update the geolocation
 window.onload = function (){
     getLocation();
     if (timerId){
