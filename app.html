@@ -1,11 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>App</title>
+    <script src="js/cookies.js"></script>
     <link href="css/list.css" type="text/css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="aqua"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="aqua">
     <meta name="msapplication-TileImage" content="Treasure-hunt.png">
@@ -15,28 +17,29 @@
     <link rel="apple-touch-icon" href="images/Treasure-hunt.png">
 </head>
 <body>
-    <header>
-        <h1>Treasure Hunt Adventure</h1>
-    </header>
+<header>
+    <h1>Treasure Hunt Adventure</h1>
+</header>
 
-        <p class="select-hunt">Select the Treasure Hunt!</p>
-    <main class="main">
+<p class="select-hunt">Write your name</p>
+<main class="main">
+    <div class="div_name">
+        <input type="text" class="answer_field" id="visitor_name" placeholder="Your Name" required>
+        <button class="submit_btn" onclick="start()">Submit</button>
+    </div>
 
-        <ul id="TreasureHunts">
+</main>
+<footer>
 
-        </ul>
-    </main>
-    <footer>
+    <div class="external-links">
+        <h3>Links:</h3>
 
-        <div class="external-links">
-            <h3>Links:</h3>
-
-            <a href="https://github.com/SKostanian/TreasureWebHunt">GitHub</a>
-            <a href="https://discord.gg/AhDUuT6N">Teamwork Discord channel</a>
-        </div>
-    </footer>
+        <a href="https://github.com/SKostanian/TreasureWebHunt">GitHub</a>
+        <a href="https://discord.gg/AhDUuT6N">Teamwork Discord channel</a>
+    </div>
+</footer>
 
 </body>
-    <!-- Source to the list.js file -->
-    <script src="js/list.js"></script>
+<!-- Source to the start.js file -->
+<script src="js/start.js"></script>
 </html>
